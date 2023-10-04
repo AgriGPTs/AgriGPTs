@@ -39,8 +39,8 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from transformers.generation.utils import GenerationConfig
 
-model_HF_ID_or_path = "/mnt/disk0/liubl/RP3_save/AgriGPTs/AgriGPT-13B"
-# model_HF_ID_or_path = "/mnt/disk0/liubl/RP3_save/AgriGPTs/AgriGPT-6B"
+model_HF_ID_or_path = "path_of_checkpoint_or_model_HF_ID"
+
 tokenizer = AutoTokenizer.from_pretrained(model_HF_ID_or_path, use_fast=False,
                                           trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained(model_HF_ID_or_path, device_map="auto",
