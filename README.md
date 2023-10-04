@@ -9,6 +9,7 @@ Research and Development of Agricultural Large Models|农业大模型研究与�
 - [AgriGPT-6B](https://huggingface.co/AgriGPTs/AgriGPT-6B)，此版本为学术demo版，基于[ChatGLM2-6B](https://github.com/THUDM/ChatGLM2-6B)训练而来,所需显存约13225MB/1024=12.91GB。
 
 - [AgriGPT-13B](https://huggingface.co/AgriGPTs/AgriGPT-13B)，此版本为学术demo版，基于[Baichuan2-13B](https://github.com/baichuan-inc/Baichuan2-13B)训练而来所需显存约30425MB/1024=29.7GB。
+- **注意：** AgriGPT-13B目前通过预训练已经丧失了对话能力，对话能力将在下一个版本进行增强和改进。
 
 ## 简介 Brief Introduction
 
@@ -18,7 +19,7 @@ Research and Development of Agricultural Large Models|农业大模型研究与�
 
 ## 数据 Dataset
 
-我们的数据主要由，百度百科，维基百科以及各种文本数据组成，随后经过清洗、数据增强等处理原始数据，形成持续预训练数据
+我们的数据主要由百度百科，维基百科以及各种文本数据组成，随后经过清洗、数据增强等处理原始数据，形成持续预训练数据
 
 
 ## 实验结果 experiments
@@ -33,7 +34,22 @@ Research and Development of Agricultural Large Models|农业大模型研究与�
 
 ##  使用 Usage
 
+```python
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers.generation.utils import GenerationConfig
 
+model_HF_ID_or_path = "/mnt/disk0/liubl/RP3_save/AgriGPTs/AgriGPT-13B"
+# model_HF_ID_or_path = "/mnt/disk0/liubl/RP3_save/AgriGPTs/AgriGPT-6B"
+tokenizer = AutoTokenizer.from_pretrained(model_HF_ID_or_path, use_fast=False,
+                                          trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained(model_HF_ID_or_path, device_map="auto",
+                                             torch_dtype=torch.bfloat16, trust_remote_code=True)
+model.generation_config = GenerationConfig.from_pretrained(model_HF_ID_or_path)
+messages = [{"role": "user", "content": "告诉我小麦作物会存在的所有病虫害有哪些"}]
+response = model.chat(tokenizer, messages)
+print(response)
+```
 
 欢迎引用我们:
 
