@@ -6,9 +6,9 @@ Research and Development of Agricultural Large Models|农业大模型研究与�
 
 ## AgriGPTs系列模型
 
-- [AgriGPT-6B](https://huggingface.co/AgriGPTs/AgriGPT-6B)，此版本为学术demo版，基于[ChatGLM2-6B](https://github.com/THUDM/ChatGLM2-6B)训练而来。
+- [AgriGPT-6B](https://huggingface.co/AgriGPTs/AgriGPT-6B)，此版本为学术demo版，基于[ChatGLM2-6B](https://github.com/THUDM/ChatGLM2-6B)训练而来,所需显存约13225MB/1024=12.91GB。
 
-- [AgriGPT-13B](https://huggingface.co/AgriGPTs/AgriGPT-13B)，此版本为学术demo版，基于[Baichuan2-13B](https://github.com/baichuan-inc/Baichuan2-13B)训练而来。
+- [AgriGPT-13B](https://huggingface.co/AgriGPTs/AgriGPT-13B)，此版本为学术demo版，基于[Baichuan2-13B](https://github.com/baichuan-inc/Baichuan2-13B)训练而来所需显存约30425MB/1024=29.7GB。
 
 ## 简介 Brief Introduction
 
@@ -38,13 +38,13 @@ Research and Development of Agricultural Large Models|农业大模型研究与�
 欢迎引用我们:
 
 ```
-@misc{AgriGPT,
+@misc{AgriGPTs,
   author={Bolong Liu and Rongqiang Zhao and Jie Liu and Qiang Wang},
-  title={AgriGPG},
+  title={AgriGPTs},
   year={2023},
   publisher={GitHub},
   journal={GitHub repository},
-  howpublished={\url{https://github.com/Agri-GPT/AgriGPT}},
+  howpublished={\url{https://github.com/AgriGPTs/AgriGPTs}},
 }
 ```
 
